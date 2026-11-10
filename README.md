@@ -32,7 +32,7 @@ npm run preview
 
 ## GitHub Pages 发布
 
-项目已包含 `.github/workflows/pages.yml`。将代码推送至目标仓库的 `main`，并在仓库的 Settings → Pages 中将发布来源设为 GitHub Actions；后续推送会自动运行核心测试、生产构建与静态站点发布，也可从 Actions 手动触发。
+项目已包含 `.github/workflows/pages.yml`。将代码推送至目标仓库的 `main`，并在仓库的 Settings → Pages 中将发布来源设为 GitHub Actions；后续涉及代码或配置的推送会自动运行核心测试、生产构建与静态站点发布，也可从 Actions 手动触发。仅修改 Markdown 文档时跳过重复发布。
 
 工作流通过 GitHub 官方动作读取站点的实际子目录，并设置 `VITE_BASE_PATH`。本地默认仍使用 `/`；自行复现子目录构建时可执行：
 
