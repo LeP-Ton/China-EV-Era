@@ -1,6 +1,6 @@
 import { ArrowRight, Cpu, Gem, Megaphone, ShieldCheck, TrendingUp, X } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
-import { STRATEGIES, type NewGameOptions, type Strategy } from '../engine';
+import { DEFAULT_SEED, STRATEGIES, type NewGameOptions, type Strategy } from '../engine';
 import { Brand, CarRender } from './shared';
 
 const strategyIcons = {
@@ -25,7 +25,7 @@ export function CreateGame({
       brand: '远川',
       model: '远川 ONE',
       strategy: 'technology',
-      seed: 'GAMEX-2026',
+      seed: DEFAULT_SEED,
     },
   );
   const update = (key: keyof NewGameOptions, value: string) =>
@@ -70,7 +70,7 @@ export function CreateGame({
           </div>
         </div>
         <footer>
-          GameX 1.0 <span>企业经营模拟 · 本地独立运行</span>
+          EV Era 1.0 <span>企业经营模拟 · 本地独立运行</span>
         </footer>
       </div>
       <div className="creation-form-wrap">

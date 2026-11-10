@@ -1,8 +1,11 @@
-# 新能源汽车经营系统 · 项目规范
+# EV-Era · 项目规范
 
 ## 定位与技术栈
 
-GameX 单机企业经营模拟游戏。React + TypeScript + Vite，首版为 2026 年开始的 12 季度经营。经营模拟在浏览器内执行，不需要业务后端、真实大模型或付费 API。所有新增文档、注释和交互文案使用简体中文。
+项目名 `EV-Era`，游戏名 `EV Era`，中文名《新能源汽车时代》，是一款单机企业经营模拟游戏。React + TypeScript + Vite，首版为 2026 年开始的 12 季度经营。经营模拟在浏览器内执行，不需要业务后端、真实大模型或付费 API。所有新增文档、注释和交互文案使用简体中文。
+
+- 在线地址：<https://lep-ton.github.io/EV-Era/>。
+- 公开仓库：<https://github.com/LeP-Ton/EV-Era>；npm 包名使用小写 `ev-era`。
 
 ## 架构与目录
 
@@ -31,3 +34,7 @@ GameX 单机企业经营模拟游戏。React + TypeScript + Vite，首版为 202
 - 修改前核实分支和现有差异，保留用户改动。实际代码变更需归入需求阶段记录；不自动提交或覆盖存档。
 - 日期与需求 ID 使用 Asia/Shanghai 时区。
 - 车辆主视觉使用高分辨率、真实透明通道的产品渲染；替换时检查深浅背景、整车边界以及桌面和小屏布局。
+
+## 项目检索方法
+
+按 `AGENTS.md` → `.agentdocs/index.md` → 当前任务相关的 workflow 文档 → 源码的顺序检索，不全量扫描历史阶段记录。实际代码变更在 `.agentdocs/workflow/` 新建带 `YYYYMMDDHHmmss` 时间前缀的 Markdown 文档，同一任务合并记录，并更新根索引；时间使用 Asia/Shanghai。

@@ -2,6 +2,8 @@ import { CONFIG, STRATEGIES } from './config';
 import { hashSeed } from './random';
 import type { GameState, NewGameOptions, PeriodFinance } from './types';
 
+export const DEFAULT_SEED = 'EV-ERA-2026';
+
 export function emptyPeriod(): PeriodFinance {
   return {
     revenue: 0,
@@ -34,11 +36,12 @@ export function createGame(options: NewGameOptions): GameState {
   const strategy = STRATEGIES[options.strategy];
   const premium = options.strategy === 'premium';
   const value = options.strategy === 'value';
+  const seed = options.seed.trim().slice(0, 80) || DEFAULT_SEED;
   const state: GameState = {
     version: 1,
     setup: { ...options },
-    seed: options.seed.trim().slice(0, 80) || 'GAMEX-2026',
-    rng: hashSeed(options.seed.trim().slice(0, 80) || 'GAMEX-2026'),
+    seed,
+    rng: hashSeed(seed),
     nextId: 1,
     week: 0,
     status: 'active',

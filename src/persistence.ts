@@ -1,6 +1,7 @@
 import { createGame, type GameState, type Strategy } from './engine';
 import { hashSeed } from './engine/random';
 
+// 存档键与文件格式属于持久化协议，保留旧标识以兼容改名前的进度、快照与排行。
 export const SAVE_KEYS = {
   auto: 'gamex-nev-v1-auto',
   manual: 'gamex-nev-v1-manual',

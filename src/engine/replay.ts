@@ -39,7 +39,8 @@ export function replayGame(s: GameState): {
   fingerprint: string;
   state: GameState;
 } {
-  let replay = createGame(s.setup);
+  // 使用存档中的实际种子，兼容改名前以旧默认种子创建的空输入开局。
+  let replay = createGame({ ...s.setup, seed: s.seed });
   for (const decision of s.decisions) {
     replay = advanceWeeks(replay, decision.week - replay.week, { stopOnEvent: false });
     const result = applyCommand(replay, decision.action);

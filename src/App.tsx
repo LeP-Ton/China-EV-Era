@@ -125,7 +125,7 @@ function downloadSave(s: GameState) {
   const url = URL.createObjectURL(blob),
     anchor = document.createElement('a');
   anchor.href = url;
-  anchor.download = `GameX-${s.company.brand}-W${s.week}.json`;
+  anchor.download = `EV-Era-${s.company.brand}-W${s.week}.json`;
   anchor.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
@@ -580,7 +580,7 @@ export default function App() {
               <span className="eyebrow">{selectedModule.en}</span>
               <h1>
                 {selectedModule.short}
-                <span className="version-pill">{module === 'dashboard' ? 'LIVE' : 'GAMEX'}</span>
+                <span className="version-pill">{module === 'dashboard' ? 'LIVE' : 'EV Era'}</span>
               </h1>
               <p>{selectedModule.description}</p>
             </div>
@@ -713,7 +713,7 @@ export default function App() {
             {module === 'office' && <Office {...props} />}
           </div>
           <footer className="main-footer">
-            <span>GameX · 决策有迹可循，未来由你定义。</span>
+            <span>EV Era · 决策有迹可循，未来由你定义。</span>
             <span>
               本地模拟 <i />
               种子 {s.seed}

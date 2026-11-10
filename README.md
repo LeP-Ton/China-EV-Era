@@ -1,8 +1,10 @@
-# GameX · 新能源汽车经营系统
+# EV Era · 新能源汽车时代
 
 一款以中国新能源汽车行业为背景的本地企业经营模拟游戏。你制定战略，虚拟高管自主执行，市场、产能、资金和历史质量决策共同决定企业的未来。
 
-[在线游玩](https://lep-ton.github.io/gamex-nev-ceo/) · [GitHub 公开仓库](https://github.com/LeP-Ton/gamex-nev-ceo)
+项目名：`EV-Era`；游戏名：`EV Era`；中文名：**新能源汽车时代**。
+
+[在线游玩](https://lep-ton.github.io/EV-Era/) · [GitHub 公开仓库](https://github.com/LeP-Ton/EV-Era)
 
 本版本实现提示词中的**第一阶段可玩 MVP**：2026—2028 年，12 个季度、156 个模拟周。不是静态界面原型，也不调用真实大模型、付费 API 或在线业务服务器。
 
@@ -39,8 +41,8 @@ npm run preview
 工作流通过 GitHub 官方动作读取站点的实际子目录，并设置 `VITE_BASE_PATH`。本地默认仍使用 `/`；自行复现子目录构建时可执行：
 
 ```bash
-VITE_BASE_PATH=/gamex-nev-ceo/ npm run build
-VITE_BASE_PATH=/gamex-nev-ceo/ npm run preview
+VITE_BASE_PATH=/EV-Era/ npm run build
+VITE_BASE_PATH=/EV-Era/ npm run preview
 ```
 
 站点文件只有浏览器前端，不需要配置 API 密钥或业务服务器。存档仍保存在访问者自己的浏览器中；本地地址与线上域名的存储空间不同，需要通过存档中心导出、导入来迁移已有进度。
@@ -123,6 +125,7 @@ VITE_BASE_PATH=/gamex-nev-ceo/ npm run preview
 ## 存档与复盘
 
 - 自动进度保存在当前浏览器、当前站点的 `localStorage`；端口变化也会形成不同存储空间。
+- 项目更名保留原存档键和文件格式，继续兼容 GameX 时期的自动进度、手动快照、导出文件与本地排行；同一浏览器访问同一域名时，仅更换站点子路径不会隔离 `localStorage`。
 - 手动快照独立于自动存档。读取会替换当前进度，重要分支建议先导出 JSON 文件。
 - 存档保留种子生成器的内部状态、历史批次、全部决策、财务流水和季度报告；导入校验失败不覆盖当前进度。
 - 「企业历史与复盘 → 校验种子复盘」从原始开局重新执行全部重大决策，并对经营事实与流水生成校验码。消息阅读状态、暂停提示不影响经营事实。
