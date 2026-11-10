@@ -70,7 +70,7 @@ export function CreateGame({
           </div>
         </div>
         <footer>
-          EV Era 1.0 <span>企业经营模拟 · 本地独立运行</span>
+          China EV Era 1.0 <span>企业经营模拟 · 本地独立运行</span>
         </footer>
       </div>
       <div className="creation-form-wrap">

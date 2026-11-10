@@ -1,11 +1,11 @@
-# EV-Era · 项目规范
+# China-EV-Era · 项目规范
 
 ## 定位与技术栈
 
-项目名 `EV-Era`，游戏名 `EV Era`，中文名《新能源汽车时代》，是一款单机企业经营模拟游戏。React + TypeScript + Vite，首版为 2026 年开始的 12 季度经营。经营模拟在浏览器内执行，不需要业务后端、真实大模型或付费 API。所有新增文档、注释和交互文案使用简体中文。
+项目名 `China-EV-Era`，游戏名 `China EV Era`，中文名《中国新能源时代》，是一款单机企业经营模拟游戏。React + TypeScript + Vite，首版为 2026 年开始的 12 季度经营。经营模拟在浏览器内执行，不需要业务后端、真实大模型或付费 API。所有新增文档、注释和交互文案使用简体中文。
 
-- 在线地址：<https://lep-ton.github.io/EV-Era/>。
-- 公开仓库：<https://github.com/LeP-Ton/EV-Era>；npm 包名使用小写 `ev-era`。
+- 在线地址：<https://lep-ton.github.io/China-EV-Era/>。
+- 公开仓库：<https://github.com/LeP-Ton/China-EV-Era>；npm 包名使用小写 `china-ev-era`。
 
 ## 架构与目录
 

@@ -19,9 +19,9 @@ export function Brand({ compact = false }: { compact?: boolean }) {
       </div>
       <div>
         <strong>
-          EV <span>Era</span>
+          China EV <span>Era</span>
         </strong>
-        {!compact && <small>新能源汽车时代</small>}
+        {!compact && <small>中国新能源时代</small>}
       </div>
     </div>
   );

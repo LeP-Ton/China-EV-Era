@@ -548,6 +548,7 @@ td strong {
 }
 .brand-mark {
   width: 32px;
+  flex-shrink: 0;
   height: 34px;
   display: flex;
   gap: 3px;
@@ -576,6 +577,11 @@ td strong {
 }
 .brand strong span {
   color: #3156dc;
+}
+.sidebar .brand strong {
+  font-size: 18px;
+  letter-spacing: -0.6px;
+  white-space: nowrap;
 }
 .brand small {
   display: block;
@@ -4066,6 +4072,9 @@ td strong {
   }
   .brand strong {
     font-size: 21px;
+  }
+  .sidebar .brand strong {
+    font-size: 16px;
   }
   .brand small {
     font-size: 9px;

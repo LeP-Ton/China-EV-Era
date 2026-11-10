@@ -1,10 +1,10 @@
-# EV Era · 新能源汽车时代
+# China EV Era · 中国新能源时代
 
 一款以中国新能源汽车行业为背景的本地企业经营模拟游戏。你制定战略，虚拟高管自主执行，市场、产能、资金和历史质量决策共同决定企业的未来。
 
-项目名：`EV-Era`；游戏名：`EV Era`；中文名：**新能源汽车时代**。
+项目名：`China-EV-Era`；游戏名：`China EV Era`；中文名：**中国新能源时代**。
 
-[在线游玩](https://lep-ton.github.io/EV-Era/) · [GitHub 公开仓库](https://github.com/LeP-Ton/EV-Era)
+[在线游玩](https://lep-ton.github.io/China-EV-Era/) · [GitHub 公开仓库](https://github.com/LeP-Ton/China-EV-Era)
 
 本版本实现提示词中的**第一阶段可玩 MVP**：2026—2028 年，12 个季度、156 个模拟周。不是静态界面原型，也不调用真实大模型、付费 API 或在线业务服务器。
 
@@ -41,8 +41,8 @@ npm run preview
 工作流通过 GitHub 官方动作读取站点的实际子目录，并设置 `VITE_BASE_PATH`。本地默认仍使用 `/`；自行复现子目录构建时可执行：
 
 ```bash
-VITE_BASE_PATH=/EV-Era/ npm run build
-VITE_BASE_PATH=/EV-Era/ npm run preview
+VITE_BASE_PATH=/China-EV-Era/ npm run build
+VITE_BASE_PATH=/China-EV-Era/ npm run preview
 ```
 
 站点文件只有浏览器前端，不需要配置 API 密钥或业务服务器。存档仍保存在访问者自己的浏览器中；本地地址与线上域名的存储空间不同，需要通过存档中心导出、导入来迁移已有进度。

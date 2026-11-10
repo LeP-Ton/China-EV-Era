@@ -2,7 +2,7 @@ import { CONFIG, STRATEGIES } from './config';
 import { hashSeed } from './random';
 import type { GameState, NewGameOptions, PeriodFinance } from './types';
 
-export const DEFAULT_SEED = 'EV-ERA-2026';
+export const DEFAULT_SEED = 'CHINA-EV-ERA-2026';
 
 export function emptyPeriod(): PeriodFinance {
   return {

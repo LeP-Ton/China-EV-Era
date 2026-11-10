@@ -76,15 +76,17 @@ describe('确定性、纯函数与存档', () => {
       advanceWeeks(s, 90, { stopOnEvent: false }),
     );
   });
-  it('更名后的默认种子生效，旧版空白种子存档仍可确定性复盘', () => {
+  it('更名后的默认种子生效，两版旧默认种子存档仍可确定性复盘', () => {
     expect(createGame({ ...options, seed: '  ' }).seed).toBe(DEFAULT_SEED);
-    const legacy = advanceWeeks(fresh('technology', 'GAMEX-2026'), 26, {
-      stopOnEvent: false,
-    });
-    legacy.setup.seed = '  ';
-    const restored = parseGame(serializeGame(legacy));
-    expect(restored.seed).toBe('GAMEX-2026');
-    expect(replayGame(restored).verified).toBe(true);
+    for (const seed of ['GAMEX-2026', 'EV-ERA-2026']) {
+      const legacy = advanceWeeks(fresh('technology', seed), 26, {
+        stopOnEvent: false,
+      });
+      legacy.setup.seed = '  ';
+      const restored = parseGame(serializeGame(legacy));
+      expect(restored.seed).toBe(seed);
+      expect(replayGame(restored).verified).toBe(true);
+    }
   });
   it('拒绝损坏、缺失嵌套字段与版本不兼容存档', async () => {
     expect(() => parseGame('oops')).toThrow();
