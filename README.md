@@ -148,7 +148,8 @@ npm run format     # 整理源码与文档格式
 
 ```text
 src/engine/        数据模型、配置、指令、周度模拟、市场、质量与复盘
-src/ui/            六个管理模块、图表、产品示意图与开局界面
+src/ui/            六个管理模块、图表、车辆视觉组件与开局界面
+src/assets/vehicles/ 高分辨率透明底车辆产品渲染
 src/App.tsx        应用状态、时间控制、业务导航和对话框
 src/persistence.ts 版本化存档、校验与本地多维排行
 scripts/balance.ts 多种子策略观测
