@@ -1,7 +1,7 @@
 import { ArrowRight, Cpu, Gem, Megaphone, ShieldCheck, TrendingUp, X } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
 import { STRATEGIES, type NewGameOptions, type Strategy } from '../engine';
-import { Brand, CarIllustration } from './shared';
+import { Brand, CarRender } from './shared';
 
 const strategyIcons = {
   technology: Cpu,
@@ -53,7 +53,7 @@ export function CreateGame({
             <br />
             在技术、资本与市场之间，找到属于你的路。
           </p>
-          <CarIllustration />
+          <CarRender />
           <div className="story-facts">
             <div>
               <strong>12</strong>

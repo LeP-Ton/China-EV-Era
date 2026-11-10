@@ -21,7 +21,7 @@ import {
   type Product,
   type TechKey,
 } from '../engine';
-import { Badge, CarIllustration, Hint, Panel, Progress, type ViewProps } from './shared';
+import { Badge, CarRender, Hint, Panel, Progress, type ViewProps } from './shared';
 import { money, price } from './format';
 
 export function Research({ state: s, dispatch, openPlan }: ViewProps & { openPlan: () => void }) {
@@ -73,7 +73,7 @@ export function Research({ state: s, dispatch, openPlan }: ViewProps & { openPla
             </span>
           </div>
         </div>
-        <CarIllustration />
+        <CarRender />
       </div>
       <div className="two-column research-columns">
         <Panel

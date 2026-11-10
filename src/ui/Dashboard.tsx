@@ -30,7 +30,7 @@ import {
 } from '../engine';
 import {
   Badge,
-  CarIllustration,
+  CarRender,
   Hint,
   Jump,
   Metric,
@@ -371,7 +371,7 @@ export function Dashboard({
               </div>
               <div className="car-stage">
                 <div className="car-orbit" />
-                <CarIllustration />
+                <CarRender />
                 <span>{s.company.brand.toUpperCase()} · ELECTRIC</span>
               </div>
             </div>

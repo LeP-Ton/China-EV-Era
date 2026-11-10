@@ -1534,16 +1534,21 @@ td strong {
   align-self: stretch;
   min-width: 0;
 }
-.car-illustration {
+.car-render {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
 }
-.car-stage > .car-illustration {
-  width: 130%;
-  min-width: 285px;
+.car-stage > .car-render {
   position: relative;
-  margin-top: 13px;
+  z-index: 1;
+  width: 112%;
+  max-width: none;
+  min-width: 0;
+  margin-top: 4px;
 }
 .car-orbit {
   position: absolute;
@@ -1681,11 +1686,12 @@ td strong {
   padding: 27px 32px;
   overflow: hidden;
   position: relative;
-  min-height: 208px;
+  min-height: 240px;
 }
 .research-hero > div {
   position: relative;
   z-index: 1;
+  max-width: 54%;
 }
 .research-hero h2 {
   font-size: 32px;
@@ -1697,12 +1703,13 @@ td strong {
   color: #6c7f9b;
   font-size: 12px;
 }
-.research-hero > .car-illustration {
-  width: 45%;
+.research-hero > .car-render {
   position: absolute;
-  right: 3%;
-  top: -12%;
-  opacity: 0.9;
+  width: 48%;
+  height: calc(100% - 20px);
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .hero-specs {
   display: flex;
@@ -3600,11 +3607,11 @@ td strong {
   letter-spacing: 0.5px;
   margin-top: 25px;
 }
-.story-content > .car-illustration {
-  width: 134%;
-  margin: 20px -17% 0 -16%;
-  filter: drop-shadow(0 20px 20px #081a36c0);
-  opacity: 0.9;
+.story-content > .car-render {
+  width: 120%;
+  max-width: none;
+  margin: 24px -10% 4px;
+  filter: drop-shadow(0 24px 24px #07152a66);
 }
 .story-facts {
   display: flex;
@@ -4172,10 +4179,10 @@ td strong {
     flex-wrap: wrap;
     max-width: 300px;
   }
-  .research-hero > .car-illustration {
-    width: 54%;
-    right: -5%;
-    top: 4%;
+  .research-hero > .car-render {
+    width: 49%;
+    right: 0;
+    top: 50%;
   }
   .research-hero {
     padding: 24px;
@@ -4430,8 +4437,13 @@ td strong {
     grid-template-columns: 1fr;
   }
   .research-hero {
-    min-height: 200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 0;
     padding: 22px;
+  }
+  .research-hero > div {
+    max-width: 100%;
   }
   .research-hero h2 {
     font-size: 27px;
@@ -4439,11 +4451,15 @@ td strong {
   .research-hero p {
     font-size: 10px;
   }
-  .research-hero > .car-illustration {
-    top: 22%;
-    right: -12%;
-    width: 70%;
-    opacity: 0.6;
+  .research-hero > .car-render {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100%, 500px);
+    height: auto;
+    justify-self: center;
+    margin-top: 8px;
+    transform: none;
   }
   .hero-specs {
     font-size: 10px;
@@ -4616,14 +4632,12 @@ td strong {
     margin-bottom: 10px;
     font-size: 10px;
   }
-  .story-content > .car-illustration {
-    position: absolute;
-    width: 52%;
-    right: 0;
-    top: 40px;
-    margin: 0;
-    opacity: 0.3;
-    pointer-events: none;
+  .story-content > .car-render {
+    position: relative;
+    width: 100%;
+    right: auto;
+    top: auto;
+    margin: 14px 0 -6px;
   }
   .story-facts,
   .creation-story > footer {
@@ -4753,8 +4767,8 @@ td strong {
   .product-overview-body {
     grid-template-columns: 1fr 1.05fr;
   }
-  .car-stage > .car-illustration {
-    min-width: 240px;
+  .car-stage > .car-render {
+    min-width: 0;
   }
   .product-overview-info h2 {
     font-size: 21px;
@@ -5109,11 +5123,12 @@ td strong {
   .strategy-detail {
     font-size: 10px;
   }
-  .story-content > .car-illustration {
-    width: 55%;
-    top: 70px;
-    right: -20px;
-    opacity: 0.18;
+  .story-content > .car-render {
+    width: 108%;
+    top: auto;
+    right: auto;
+    margin-left: -4%;
+    margin-right: -4%;
   }
   .creation-note {
     font-size: 10px;

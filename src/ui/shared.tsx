@@ -2,6 +2,7 @@ import { ArrowDownRight, ArrowUpRight, ChevronRight, Info, X, type LucideIcon } 
 import { useEffect, useRef, type ReactNode } from 'react';
 import type { Command, GameState, Module, Tone } from '../engine';
 import { money } from './format';
+import carRenderUrl from '../assets/vehicles/nev-sedan-render.webp';
 
 export interface ViewProps {
   state: GameState;
@@ -324,104 +325,17 @@ export function TrendChart({
   );
 }
 
-export function CarIllustration({ className = '' }: { className?: string }) {
+export function CarRender({ className = '' }: { className?: string }) {
   return (
-    <svg
-      className={`car-illustration ${className}`}
-      viewBox="0 0 640 270"
-      fill="none"
-      role="img"
-      aria-label="新能源轿车设计示意图"
-    >
-      <defs>
-        <linearGradient
-          id="body"
-          x1="300"
-          y1="115"
-          x2="350"
-          y2="220"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#f8fbff" />
-          <stop offset=".38" stopColor="#dce6f4" />
-          <stop offset="1" stopColor="#b2c4dc" />
-        </linearGradient>
-        <linearGradient
-          id="glass"
-          x1="270"
-          y1="90"
-          x2="350"
-          y2="150"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#33455e" />
-          <stop offset="1" stopColor="#748da9" />
-        </linearGradient>
-        <linearGradient
-          id="hood"
-          x1="385"
-          y1="140"
-          x2="500"
-          y2="190"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#edf4ff" />
-          <stop offset="1" stopColor="#c2d2e6" />
-        </linearGradient>
-      </defs>
-      <ellipse cx="333" cy="226" rx="237" ry="13" fill="#7e94b4" opacity=".13" />
-      <ellipse cx="332" cy="221" rx="191" ry="7" fill="#5b7399" opacity=".12" />
-      <path
-        d="m92 176 22-29 89-14 63-49c22-16 86-18 130-5l76 48 67 21 18 23-2 28-29 13-410-3-24-14z"
-        fill="url(#body)"
-        stroke="#93a9c6"
-        strokeWidth="1.4"
-      />
-      <path d="m220 131 52-42c16-12 76-14 108-3l63 43-111 3z" fill="url(#glass)" stroke="#7e94b0" />
-      <path d="m325 82 7 51m54-46 57 42" stroke="#d6e1ef" strokeWidth="5" />
-      <path d="m222 130 108 8 118-7" stroke="#a6bad2" strokeWidth="2" />
-      <path d="m447 132 70 22 26 18-121 4-54-25z" fill="url(#hood)" />
-      <path
-        d="m100 171 101-14 167-6 54 25 121-4m-427 31 106-6 151 4 104 8"
-        stroke="#a1b5cf"
-        strokeWidth="1.5"
-      />
-      <path
-        d="m238 143-5 49m101-52 3 55m-84-48 14-1m85 2 16 1"
-        stroke="#8099b9"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path d="m109 153 73-10 20 6-68 11z" fill="#f7fcff" stroke="#a8bfdc" />
-      <path d="m493 158 37 9 10 8-42-7z" fill="#eaffff" stroke="#91b6d7" />
-      <path d="m506 185 38-4-6 14-31 6z" fill="#5c7495" />
-      <path d="m99 183 23-5 12 21-31-7z" fill="#7e94af" />
-      <ellipse cx="201" cy="198" rx="39" ry="40" fill="#253348" />
-      <ellipse cx="201" cy="198" rx="29" ry="31" fill="#8da1b8" />
-      <ellipse cx="201" cy="198" rx="23" ry="25" fill="#c9d7e8" />
-      <ellipse cx="201" cy="198" rx="7" ry="8" fill="#627c9d" />
-      <ellipse cx="451" cy="203" rx="36" ry="38" fill="#253348" />
-      <ellipse cx="451" cy="203" rx="27" ry="29" fill="#8da1b8" />
-      <ellipse cx="451" cy="203" rx="21" ry="23" fill="#c9d7e8" />
-      <ellipse cx="451" cy="203" rx="6" ry="7" fill="#627c9d" />
-      {[0, 60, 120].map((a) => (
-        <g key={a}>
-          <path
-            d="M201 173v50m-21-37 42 24m-42 0 42-24"
-            stroke="#7189a7"
-            strokeWidth="3"
-            transform={`rotate(${a} 201 198)`}
-          />
-          <path
-            d="M451 180v46m-19-34 38 22m-38 0 38-22"
-            stroke="#7189a7"
-            strokeWidth="2.5"
-            transform={`rotate(${a} 451 203)`}
-          />
-        </g>
-      ))}
-      <path d="m216 126-12 2-5 9 25-2z" fill="#b9cbe0" stroke="#8fa8c8" />
-      <path d="m245 109 53-18 15-1" stroke="#eef6ff" strokeWidth="2" opacity=".6" />
-    </svg>
+    <img
+      className={`car-render ${className}`}
+      src={carRenderUrl}
+      alt="银色新能源汽车概念渲染"
+      width={1774}
+      height={887}
+      loading="eager"
+      decoding="async"
+      draggable={false}
+    />
   );
 }
