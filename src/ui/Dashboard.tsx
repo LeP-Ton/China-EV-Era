@@ -371,7 +371,7 @@ export function Dashboard({
               </div>
               <div className="car-stage">
                 <div className="car-orbit" />
-                <CarRender />
+                <CarRender logo={s.setup.logo} />
                 <span>{s.company.brand.toUpperCase()} · ELECTRIC</span>
               </div>
             </div>

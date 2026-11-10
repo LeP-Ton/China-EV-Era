@@ -1548,6 +1548,10 @@ td strong {
   user-select: none;
   pointer-events: none;
 }
+.company-logo > svg {
+  width: 65%;
+  height: 65%;
+}
 .car-stage > .car-render {
   position: relative;
   z-index: 1;
@@ -3713,6 +3717,65 @@ td strong {
 .form-label > span {
   font-size: 10px;
   color: #72849d;
+}
+.logo-picker {
+  min-width: 0;
+  margin: 22px 0;
+  padding: 0;
+  border: 0;
+}
+.logo-picker legend {
+  padding: 0;
+  color: #526a8f;
+  font-size: 12px;
+}
+.logo-picker > p {
+  margin: 6px 0 10px;
+  font-size: 10px;
+  color: #8292a9;
+}
+.logo-options {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+.creation-form .logo-option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 5px 9px;
+  border: 1px solid #e3e9f2;
+  border-radius: 6px;
+  color: #7b8ca8;
+  cursor: pointer;
+}
+.logo-option > svg {
+  width: 28px;
+  height: 28px;
+}
+.creation-form .logo-option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  margin: 0;
+  opacity: 0;
+}
+.creation-form .logo-option.selected {
+  color: #355bd4;
+  border-color: #91adf1;
+  background: #f2f6ff;
+}
+.logo-option:focus-within {
+  outline: 2px solid #4068de;
+  outline-offset: 3px;
+}
+@media (max-width: 420px) {
+  .logo-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 .strategy-options {
   display: grid;

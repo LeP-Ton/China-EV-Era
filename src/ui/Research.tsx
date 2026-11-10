@@ -73,7 +73,7 @@ export function Research({ state: s, dispatch, openPlan }: ViewProps & { openPla
             </span>
           </div>
         </div>
-        <CarRender />
+        <CarRender logo={s.setup.logo} />
       </div>
       <div className="two-column research-columns">
         <Panel

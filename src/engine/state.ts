@@ -1,4 +1,5 @@
 import { CONFIG, STRATEGIES } from './config';
+import { DEFAULT_BRAND_LOGO, isBrandLogo } from './branding';
 import { hashSeed } from './random';
 import type { GameState, NewGameOptions, PeriodFinance } from './types';
 
@@ -39,7 +40,7 @@ export function createGame(options: NewGameOptions): GameState {
   const seed = options.seed.trim().slice(0, 80) || DEFAULT_SEED;
   const state: GameState = {
     version: 1,
-    setup: { ...options },
+    setup: { ...options, logo: isBrandLogo(options.logo) ? options.logo : DEFAULT_BRAND_LOGO },
     seed,
     rng: hashSeed(seed),
     nextId: 1,

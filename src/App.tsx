@@ -66,6 +66,7 @@ import { Office } from './ui/Office';
 import { Production } from './ui/Production';
 import { Research } from './ui/Research';
 import { Badge, Brand, Empty, Hint, Modal } from './ui/shared';
+import { BrandLogoIcon } from './ui/BrandLogo';
 import { integer, money, pct, weekLabel } from './ui/format';
 
 const modules = [
@@ -413,6 +414,7 @@ export default function App() {
                   model: game.product.name,
                   strategy: game.company.strategy,
                   seed: game.seed,
+                  logo: game.setup.logo,
                 }
               : undefined
           }
@@ -467,7 +469,9 @@ export default function App() {
       <aside className={`sidebar ${mobileNav ? 'open' : ''}`}>
         <Brand />
         <div className="company-switch">
-          <span className="company-logo">{s.company.brand.charAt(0)}</span>
+          <span className="company-logo">
+            <BrandLogoIcon logo={s.setup.logo} />
+          </span>
           <div>
             <strong>{s.company.name}</strong>
             <small>{s.company.brand} · 创始人工作台</small>
@@ -734,7 +738,9 @@ export default function App() {
         <Modal title="存档中心" eyebrow="YOUR COMPANY, YOUR HISTORY" onClose={closeDialog}>
           <Hint>自动存档保存当前进度。手动快照独立保存；载入会替换当前进度，建议先导出备份。</Hint>
           <div className="save-snapshot">
-            <div className="company-logo">{s.company.brand.charAt(0)}</div>
+            <div className="company-logo">
+              <BrandLogoIcon logo={s.setup.logo} />
+            </div>
             <div>
               <strong>{s.company.name}</strong>
               <p>

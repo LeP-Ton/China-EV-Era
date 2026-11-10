@@ -1,6 +1,15 @@
 import { ArrowDownRight, ArrowUpRight, ChevronRight, Info, X, type LucideIcon } from 'lucide-react';
 import { useEffect, useRef, type ReactNode } from 'react';
-import type { Command, GameState, Module, Tone } from '../engine';
+import {
+  BRAND_LOGOS,
+  DEFAULT_BRAND_LOGO,
+  type BrandLogoId,
+  type Command,
+  type GameState,
+  type Module,
+  type Tone,
+} from '../engine';
+import { BrandLogoIcon } from './BrandLogo';
 import { money } from './format';
 import carRenderUrl from '../assets/vehicles/nev-sedan-render.webp';
 
@@ -325,17 +334,57 @@ export function TrendChart({
   );
 }
 
-export function CarRender({ className = '' }: { className?: string }) {
+export function CarRender({
+  className = '',
+  logo = DEFAULT_BRAND_LOGO,
+}: {
+  className?: string;
+  logo?: BrandLogoId;
+}) {
+  const badge = BRAND_LOGOS.find((item) => item.id === logo) ?? BRAND_LOGOS[0];
   return (
-    <img
-      className={`car-render ${className}`}
-      src={carRenderUrl}
-      alt="银色新能源汽车概念渲染"
+    <svg
+      className={'car-render ' + className}
+      viewBox="0 0 1774 887"
       width={1774}
       height={887}
-      loading="eager"
-      decoding="async"
-      draggable={false}
-    />
+      preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-label={badge.name + '车标的银色新能源汽车'}
+      data-logo={badge.id}
+    >
+      <image href={carRenderUrl} width={1774} height={887} />
+      {/* 车标与原图共用坐标系，容器缩放或留白时仍固定在车头表面。 */}
+      <g
+        className="car-emblem"
+        transform="translate(1490 432) rotate(-2) skewX(-16) scale(2.2 1.15)"
+      >
+        <rect
+          x={-20}
+          y={-18}
+          width={40}
+          height={36}
+          rx={11}
+          fill="#172333"
+          stroke="#d2d9df"
+          strokeWidth={1.4}
+        />
+        <path
+          d="M-12-15H11Q17-15 17-9"
+          fill="none"
+          stroke="#fff"
+          strokeOpacity={0.5}
+          strokeWidth={1.2}
+        />
+        <BrandLogoIcon
+          logo={badge.id}
+          x={-13}
+          y={-13}
+          width={26}
+          height={26}
+          style={{ color: '#edf2f6' }}
+        />
+      </g>
+    </svg>
   );
 }

@@ -1,4 +1,10 @@
-import { createGame, type GameState, type Strategy } from './engine';
+import {
+  createGame,
+  DEFAULT_BRAND_LOGO,
+  isBrandLogo,
+  type GameState,
+  type Strategy,
+} from './engine';
 import { hashSeed } from './engine/random';
 
 // 存档键与文件格式属于持久化协议，保留旧标识以兼容改名前的进度、快照与排行。
@@ -43,6 +49,7 @@ function validState(value: unknown): value is GameState {
   const base = { ...value, pause: null };
   if (!matches(base, template)) return false;
   const s = value as unknown as GameState;
+  if (!isBrandLogo(s.setup.logo)) return false;
   const strategies = ['technology', 'value', 'premium', 'marketing', 'quality'];
   const modules = ['dashboard', 'research', 'production', 'finance', 'market', 'office'];
   const suppliers = ['established', 'premium', 'unverified'];
@@ -265,6 +272,9 @@ export function parseGame(text: string): GameState {
   } catch {
     throw new Error('存档内容损坏。');
   }
+  // 车标是新增的视觉信息，旧版存档缺少此字段时补默认值，保持原经营事实。
+  if (object(state) && object(state.setup) && !('logo' in state.setup))
+    state.setup.logo = DEFAULT_BRAND_LOGO;
   if (!validState(state)) throw new Error('存档缺少必要数据或包含无效状态，原进度未被覆盖。');
   return state;
 }

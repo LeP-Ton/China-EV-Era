@@ -7,6 +7,9 @@ import {
   CONFIG,
   createGame,
   DEFAULT_SEED,
+  BRAND_LOGOS,
+  DEFAULT_BRAND_LOGO,
+  businessFingerprint,
   forecast,
   MODES,
   playerOffer,
@@ -86,6 +89,29 @@ describe('确定性、纯函数与存档', () => {
       const restored = parseGame(serializeGame(legacy));
       expect(restored.seed).toBe(seed);
       expect(replayGame(restored).verified).toBe(true);
+    }
+  });
+  it('车标随存档保存且不改变经营模拟或复盘', () => {
+    const baseline = businessFingerprint(advanceWeeks(fresh(), 26, { stopOnEvent: false }));
+    for (const logo of BRAND_LOGOS) {
+      const saved = parseGame(serializeGame(createGame({ ...options, logo: logo.id })));
+      expect(saved.setup.logo).toBe(logo.id);
+      const progressed = advanceWeeks(saved, 26, { stopOnEvent: false });
+      expect(businessFingerprint(progressed)).toBe(baseline);
+      expect(replayGame(progressed).verified).toBe(true);
+    }
+  });
+  it('旧存档补默认车标，非法车标不能导入', () => {
+    const legacy = advanceWeeks(fresh(), 13, { stopOnEvent: false });
+    delete legacy.setup.logo;
+    const restored = parseGame(serializeGame(legacy));
+    expect(restored.setup.logo).toBe(DEFAULT_BRAND_LOGO);
+    expect(businessFingerprint(restored)).toBe(businessFingerprint(legacy));
+    expect(replayGame(restored).verified).toBe(true);
+    for (const logo of ['unknown', null, { id: 'spark' }]) {
+      const invalid = fresh();
+      (invalid.setup as unknown as Record<string, unknown>).logo = logo;
+      expect(() => parseGame(serializeGame(invalid))).toThrow(/无效状态/);
     }
   });
   it('拒绝损坏、缺失嵌套字段与版本不兼容存档', async () => {

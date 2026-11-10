@@ -1,6 +1,14 @@
 import { ArrowRight, Cpu, Gem, Megaphone, ShieldCheck, TrendingUp, X } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
-import { DEFAULT_SEED, STRATEGIES, type NewGameOptions, type Strategy } from '../engine';
+import {
+  BRAND_LOGOS,
+  DEFAULT_BRAND_LOGO,
+  DEFAULT_SEED,
+  STRATEGIES,
+  type NewGameOptions,
+  type Strategy,
+} from '../engine';
+import { BrandLogoIcon } from './BrandLogo';
 import { Brand, CarRender } from './shared';
 
 const strategyIcons = {
@@ -26,6 +34,7 @@ export function CreateGame({
       model: '远川 ONE',
       strategy: 'technology',
       seed: DEFAULT_SEED,
+      logo: DEFAULT_BRAND_LOGO,
     },
   );
   const update = (key: keyof NewGameOptions, value: string) =>
@@ -53,7 +62,7 @@ export function CreateGame({
             <br />
             在技术、资本与市场之间，找到属于你的路。
           </p>
-          <CarRender />
+          <CarRender logo={form.logo} />
           <div className="story-facts">
             <div>
               <strong>12</strong>
@@ -116,6 +125,31 @@ export function CreateGame({
               />
             </label>
           </div>
+          <fieldset className="logo-picker">
+            <legend>选择车标</legend>
+            <p>六款原创标志，选中后立即显示在车头。</p>
+            <div className="logo-options">
+              {BRAND_LOGOS.map((logo) => (
+                <label
+                  className={
+                    'logo-option ' +
+                    ((form.logo ?? DEFAULT_BRAND_LOGO) === logo.id ? 'selected' : '')
+                  }
+                  key={logo.id}
+                >
+                  <input
+                    type="radio"
+                    name="brand-logo"
+                    value={logo.id}
+                    checked={(form.logo ?? DEFAULT_BRAND_LOGO) === logo.id}
+                    onChange={() => setForm((current) => ({ ...current, logo: logo.id }))}
+                  />
+                  <BrandLogoIcon logo={logo.id} />
+                  <span>{logo.name}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
           <div className="form-label">
             选择初始战略<span>起点不同，路线由你决定</span>
           </div>

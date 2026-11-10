@@ -1,3 +1,5 @@
+import type { BrandLogoId } from './branding';
+
 export type Strategy = 'technology' | 'value' | 'premium' | 'marketing' | 'quality';
 export type TechKey = 'battery' | 'driving' | 'safety';
 export type Module = 'dashboard' | 'research' | 'production' | 'finance' | 'market' | 'office';
@@ -311,6 +313,7 @@ export type Command =
 export interface NewGameOptions {
   name: string;
   brand: string;
+  logo?: BrandLogoId;
   model: string;
   strategy: Strategy;
   seed: string;
