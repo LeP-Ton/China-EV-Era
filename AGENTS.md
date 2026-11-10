@@ -2,7 +2,7 @@
 
 ## 定位与技术栈
 
-GameX 单机企业经营模拟游戏。React + TypeScript + Vite，首版为 2026 年开始的 12 季度经营。运行时不需要服务器、真实大模型或付费 API。所有新增文档、注释和交互文案使用简体中文。
+GameX 单机企业经营模拟游戏。React + TypeScript + Vite，首版为 2026 年开始的 12 季度经营。经营模拟在浏览器内执行，不需要业务后端、真实大模型或付费 API。所有新增文档、注释和交互文案使用简体中文。
 
 ## 架构与目录
 
@@ -10,6 +10,7 @@ GameX 单机企业经营模拟游戏。React + TypeScript + Vite，首版为 202
 - `src/ui/`：六个业务模块及共用图表、汽车示意图等组件。状态变更一律通过引擎指令。
 - `src/persistence.ts`：版本化本地存档与输入校验。
 - `scripts/balance.ts`：多种子、多策略的完整经营模拟与对比。
+- `.github/workflows/pages.yml`：GitHub Pages 的测试、构建和静态发布；构建时从 Pages 元数据设置 `VITE_BASE_PATH`，本地默认根路径。
 - `.agentdocs/`：需求索引与阶段记录。先读索引，再读对应需求 README，避免全量扫描历史。
 
 ## 运行与验证
@@ -18,6 +19,7 @@ GameX 单机企业经营模拟游戏。React + TypeScript + Vite，首版为 202
 - `npm test`：核心计算与真实经营情景测试。
 - `npm run build`：TypeScript 检查与生产构建。
 - `npm run simulate`：策略平衡观测。
+- `main` 的代码或配置推送自动触发 Pages 发布；仅修改 Markdown 时跳过重复发布，也可手动触发工作流。
 
 ## 长期约束
 
