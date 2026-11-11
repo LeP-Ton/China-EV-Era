@@ -39,7 +39,7 @@ for (const width of [1440, 390]) {
       await page.locator('.logo-option').filter({ hasText: logo.name }).click();
       await expect(page.getByRole('radio', { name: logo.name, exact: true })).toBeChecked();
       await expect(page.locator('.car-render')).toHaveAttribute('data-logo', logo.id);
-      shapes.add((await page.locator('.car-emblem svg path').getAttribute('d'))!);
+      shapes.add((await page.locator('.car-emblem-face path').getAttribute('d'))!);
     }
     expect(shapes.size).toBe(BRAND_LOGOS.length);
     await page.locator('.logo-option').filter({ hasText: '凌翼' }).click();

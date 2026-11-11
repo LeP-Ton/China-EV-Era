@@ -13,6 +13,7 @@ const paths: Record<BrandLogoId, string> = {
 
 export function BrandLogoIcon({
   logo = DEFAULT_BRAND_LOGO,
+  fill = 'currentColor',
   ...props
 }: SVGProps<SVGSVGElement> & { logo?: BrandLogoId }) {
   return (
@@ -25,7 +26,7 @@ export function BrandLogoIcon({
       data-logo={logo}
       {...props}
     >
-      <path d={paths[logo]} fill="currentColor" fillRule="evenodd" />
+      <path d={paths[logo]} fill={fill} fillRule="evenodd" />
     </svg>
   );
 }
